@@ -24,7 +24,9 @@
   "[javascriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "js/ts.tsdk.path": "node_modules/typescript/lib",
-  "js/ts.suggest.autoImports": true,
-  "js/ts.preferences.includePackageJsonAutoImports": "on"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.suggest.autoImports": true,
+  "javascript.suggest.autoImports": true,
+  "typescript.preferences.includePackageJsonAutoImports": "on",
+  "js/ts.tsdk.path": "node_modules/typescript/lib"
 }
