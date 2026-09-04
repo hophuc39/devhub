@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import ThemeProvider from "@/context/Theme";
+import { cn } from "@/lib/utils";
 
 const inter = localFont({
   src: "./fonts/InterVF.ttf",
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={cn("font-inter", inter.variable)}>
       <body className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}
