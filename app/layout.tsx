@@ -15,8 +15,12 @@ const spaceGrotesk = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "DevHub",
-  description: "A developer learning platform inspired by Stack Overflow and JS Mastery.",
+  title: "Dev Overflow",
+  description:
+    "A community-driven platform for asking and answering programming questions. Get help, share knowledge, and collaborate with developers from around the world. Explore topics in web development, mobile app development, algorithms, data structures, and more. Inspired by Stack Overflow and JS Mastery",
+  icons: {
+    icon: "/images/site-logo.svg",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
