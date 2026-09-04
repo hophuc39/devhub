@@ -3,7 +3,9 @@ import localFont from "next/font/local";
 import "./globals.css";
 import ThemeProvider from "@/context/Theme";
 import { cn } from "@/lib/utils";
-import Navbar from "@/components/navigation/navbar";
+import { Toaster } from "sonner";
+import auth from "@/lib/auth";
+import { headers } from "next/headers";
 
 const inter = localFont({
   src: "./fonts/InterVF.ttf",
@@ -26,13 +28,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
   return (
     <html lang="en" suppressHydrationWarning className={cn("font-inter", inter.variable)}>
       <body className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <Navbar />
           {children}
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
